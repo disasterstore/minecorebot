@@ -36,11 +36,11 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('lightplays_bot.log'),
+        logging.FileHandler('minecore_bot.log'),
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger('LightplaysBot')
+logger = logging.getLogger('MinecoreBot')
 
 # Load environment variables
 load_dotenv()
@@ -96,11 +96,11 @@ RUN mkdir /var/run/sshd && \\
 RUN systemctl enable ssh && \\
     systemctl enable docker
 
-# Lightplays customization
+# Minecore Cloud customization
 RUN echo '{welcome_message}' > /etc/motd && \\
     echo 'echo "{welcome_message}"' >> /home/{username}/.bashrc && \\
     echo '{watermark}' > /etc/machine-info && \\
-    echo 'lightplays-{vps_id}' > /etc/hostname
+    echo 'minecore-{vps_id}' > /etc/hostname
 
 # Install additional useful packages
 RUN apt-get update && \\
